@@ -1,12 +1,12 @@
 # AirBnB Clone - The Console
 <div style="text-align: center;">
-  <img src="/root/alx/AirBnB_clone/hbnb.png" alt="Hbnb" width="800"/>
+  <img src="hbnb.png" alt="Hbnb" width="800"/>
 </div>
 
 ---
 
 <div style="text-align: center;">
-  <img src="/root/alx/AirBnB_clone/console.png" alt="AirBnB Clone" width="800"/>
+  <img src="console.png" alt="AirBnB Clone" width="800"/>
 </div>
 
 ## Description of the Project
