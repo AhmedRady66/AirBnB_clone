@@ -13,7 +13,6 @@ from models.base_model import BaseModel
 from json import dump, load
 
 
-
 class FileStorage:
     """Represent an abstracted storage engine.
     Attributes:
@@ -26,7 +25,7 @@ class FileStorage:
     def all(self):
         """Return objects"""
         return FileStorage.__objects
-    
+
     def new(self, obj):
         """set value of id to object"""
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
@@ -42,7 +41,6 @@ class FileStorage:
                 dump(objdic, f)
 
     def reload(self):
-        
         """deserializes the JSON file"""
         definedClasses = {'BaseModel': BaseModel}
         try:
