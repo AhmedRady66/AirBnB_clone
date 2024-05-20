@@ -6,6 +6,7 @@ Define a BaseModel class
 from uuid import uuid4
 from datetime import datetime
 
+
 class BaseModel:
     """Represents base model"""
     def __init__(self):
@@ -16,8 +17,9 @@ class BaseModel:
 
     def __str__(self):
         """Return string representation of the data"""
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
-    
+        return "[{}] ({}) {}".format(self.__class__.__name__,
+                                     self.id, self.__dict__)
+
     def save(self):
         """Saving updated data"""
         updated_at = datetime.now().isoformat()
