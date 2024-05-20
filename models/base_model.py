@@ -7,7 +7,6 @@ from uuid import uuid4
 from datetime import datetime
 
 
-
 class BaseModel:
     """Represents base model"""
     def __init__(self, *args, **kwargs):
@@ -38,7 +37,6 @@ class BaseModel:
         from models import storage
         self.updated_at = datetime.now().isoformat()
         storage.save()
-        
 
     def to_dict(self):
         """Return a dictionary representation of the data."""
