@@ -87,11 +87,9 @@ class HBNBCommand(cmd.Cmd):
         else:
             all_objs = models.storage.all()
             if len(args) > 0:
-                # Filter objects by the class name provided.
                 filtered_objs = [str(obj) for key, obj in all_objs.items() if args[0] in key]
                 print(filtered_objs)
             else:
-                # Print all objects if no class name is provided.
                 print([str(obj) for obj in all_objs.values()])
 
     def do_update(self, arg):
