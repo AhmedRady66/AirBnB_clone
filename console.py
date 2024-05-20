@@ -22,11 +22,11 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, arg):
         """Quit command to exit the program"""
         return True
-    
+
     def do_EOF(self, arg):
         """End of life of the console"""
         return True
-    
+
     def emptyline(self):
         """Do nothing when enter empty line"""
         pass
@@ -44,7 +44,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, arg):
-        """Prints the string representation of an instance based on the class name and id."""
+        """Prints the string representation"""
         arg = arg.split()
         if len(arg) == 0:
             print("** class name missing **")
@@ -80,7 +80,7 @@ class HBNBCommand(cmd.Cmd):
         return
 
     def do_all(self, arg):
-        """Prints all string representation of all instances based or not on the class name."""
+        """Prints all string representation of class name."""
         args = arg.split()
         if len(args) > 0 and args[0] not in self.__classes:
             print("** class doesn't exist **")
@@ -94,7 +94,48 @@ class HBNBCommand(cmd.Cmd):
                 # Print all objects if no class name is provided.
                 print([str(obj) for obj in all_objs.values()])
 
-            
+    def do_update(self, arg):
+        """Updates an instance."""
+        args = arg.split()
+        if len(args) == 0:
+            print("** class name missing **")
+            return
+        if args[0] not in self.__classes:
+            print("** class doesn't exist **")
+            return
+        if len(args) == 1:
+            print("** instance id missing **")
+            return
+        if len(args) == 2:
+            print("** attribute name missing **")
+            return
+        if len(args) == 3:
+            print("** value missing **")
+            return
+        key = args[0] + "." + args[1]
+        dic = models.storage.all()
+        if key not in dic:
+            print("** no instance found **")
+            return
+
+        instance = dic[key]
+        attribute_name = args[2]
+        attribute_value = args[3].strip("\"")
+
+        if attribute_name in ['id', 'created_at', 'updated_at']:
+            print(f"** {attribute_name} can't be updated **")
+            return
+
+        try:
+            typedata = type(getattr(instance, attribute_name))
+            attribute_value = typedata(attribute_value)
+        except (ValueError, TypeError):
+            print("** invalid attribute value **")
+            return
+
+        setattr(instance, attribute_name, attribute_value)
+        instance.save()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
