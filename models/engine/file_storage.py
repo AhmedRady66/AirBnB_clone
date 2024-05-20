@@ -43,7 +43,7 @@ class FileStorage:
     def reload(self):
         """deserializes the JSON file"""
         definedClasses = {'BaseModel': BaseModel,
-                          'Users': User}
+                          'User': User}
         try:
             with open(FileStorage.__file_path, encoding="utf-8") as fi:
                 deserial = load(fi)
