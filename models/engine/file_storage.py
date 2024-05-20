@@ -4,7 +4,7 @@ Define FileStorage class
 """
 
 from models.base_model import BaseModel
-# from models.user import User
+from models.user import User
 # from models.state import State
 # from models.city import City
 # from models.place import Place
@@ -42,7 +42,8 @@ class FileStorage:
 
     def reload(self):
         """deserializes the JSON file"""
-        definedClasses = {'BaseModel': BaseModel}
+        definedClasses = {'BaseModel': BaseModel,
+                          'Users': User}
         try:
             with open(FileStorage.__file_path, encoding="utf-8") as fi:
                 deserial = load(fi)
