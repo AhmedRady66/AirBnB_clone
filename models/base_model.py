@@ -32,7 +32,7 @@ class BaseModel:
 
     def save(self):
         """Saving updated data"""
-        updated_at = datetime.now().isoformat()
+        self.updated_at = datetime.now().isoformat()
 
     def to_dict(self):
         """Return a dictionary representation of the data."""
