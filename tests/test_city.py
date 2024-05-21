@@ -30,5 +30,6 @@ class TestCity(unittest.TestCase):
         self.assertIsInstance(self.city.name, str)
         self.assertIsInstance(self.city.state_id, str)
 
+
 if __name__ == '__main__':
     unittest.main()

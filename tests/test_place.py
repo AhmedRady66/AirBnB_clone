@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-test cases for city class
+test cases for place class
 """
 
 from models.base_model import BaseModel
@@ -17,14 +17,14 @@ class TestPlace(unittest.TestCase):
         self.place.city_id = "Cairo-123"
         self.place.user_id = "User-456"
         self.place.name = "Sunny Retreat"
-        self.place.description = "A cozy place with a beautiful view of the Nile."
+        self.place.description = "beautiful view of the Nile."
         self.place.number_rooms = 3
         self.place.number_bathrooms = 2
         self.place.max_guest = 4
         self.place.price_by_night = 150
         self.place.latitude = 30.0444
         self.place.longitude = 31.2357
-        self.place.amenity_ids = ["Pool", "WiFi", "Air Conditioning"]
+        self.place.amenity_ids = ["Pool", "WiFi"]
 
     def test_instance(self):
         """Test the instantiation of the Place class."""
@@ -39,14 +39,14 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(self.place.city_id, "Cairo-123")
         self.assertEqual(self.place.user_id, "User-456")
         self.assertEqual(self.place.name, "Sunny Retreat")
-        self.assertEqual(self.place.description, "A cozy place with a beautiful view of the Nile.")
+        self.assertEqual(self.place.description, "beautiful view of the Nile.")
         self.assertEqual(self.place.number_rooms, 3)
         self.assertEqual(self.place.number_bathrooms, 2)
         self.assertEqual(self.place.max_guest, 4)
         self.assertEqual(self.place.price_by_night, 150)
         self.assertAlmostEqual(self.place.latitude, 30.0444)
         self.assertAlmostEqual(self.place.longitude, 31.2357)
-        self.assertListEqual(self.place.amenity_ids, ["Pool", "WiFi", "Air Conditioning"])
+        self.assertListEqual(self.place.amenity_ids, ["Pool", "WiFi"])
 
     def test_attribute_types(self):
         """Test the type of each attribute."""
@@ -61,6 +61,7 @@ class TestPlace(unittest.TestCase):
         self.assertIsInstance(self.place.latitude, float)
         self.assertIsInstance(self.place.longitude, float)
         self.assertIsInstance(self.place.amenity_ids, list)
+
 
 if __name__ == '__main__':
     unittest.main()
