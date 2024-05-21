@@ -87,7 +87,9 @@ class HBNBCommand(cmd.Cmd):
         else:
             all_objs = models.storage.all()
             if len(args) > 0:
-                filtered_objs = [str(obj) for key, obj in all_objs.items() if args[0] in key]
+                filtered_objs = [
+                    str(obj) for key, obj in all_objs.items() if args[0] in key
+                    ]
                 print(filtered_objs)
             else:
                 print([str(obj) for obj in all_objs.values()])
